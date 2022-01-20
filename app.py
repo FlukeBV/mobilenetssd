@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, redirect, url_for, render_template, send_from_directory, flash, jsonify
 from werkzeug.utils import secure_filename
-import cv2
+#import cv2
 import numpy as np
 import json
 import requests
@@ -26,7 +26,7 @@ UPLOAD_FOLDER ='static/uploads/'
 DOWNLOAD_FOLDER = 'static/downloads/'
 ALLOWED_EXTENSIONS = {'jpg', 'png','.jpeg'}
 
-lineaccesstoken = 'MK+kybDWKaZTTC5SEyUPxeI4xVmTQR0w75DAK24AP9LPpTAX84fuZQInqCeIsitTobn4cVp+jGpguHyKgHWnf2YTOIa4qf5PS1QYtVmsJWPGzssu5zAoc7W79i3uLd0nSdnOcfnSwpbgzssu5zAoc7W79i3uLd04'
+lineaccesstoken = 'MK+kybDWKaZTTC5SEyUPxeI4xVmTQR0w75DAK24AP9LPpTAX84fuZQInqCeIsitTobn4cVp+jGpguHyKgHWnf2YTOIa4qf5PS1QYtVmsJWPGzssu5zAoc7W79i3uLrzMbvjrPB1sx0dubtlnSnCKtwdB04t89/1O/w1cDnyilFU='
 
 line_bot_api = LineBotApi(lineaccesstoken)
 
