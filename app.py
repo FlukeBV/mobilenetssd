@@ -26,7 +26,7 @@ UPLOAD_FOLDER ='static/uploads/'
 DOWNLOAD_FOLDER = 'static/downloads/'
 ALLOWED_EXTENSIONS = {'jpg', 'png','.jpeg'}
 
-lineaccesstoken = ''
+lineaccesstoken = 'MK+kybDWKaZTTC5SEyUPxeI4xVmTQR0w75DAK24AP9LPpTAX84fuZQInqCeIsitTobn4cVp+jGpguHyKgHWnf2YTOIa4qf5PS1QYtVmsJWPGzssu5zAoc7W79i3uLd0nSdnOcfnSwpbgzssu5zAoc7W79i3uLd04'
 
 line_bot_api = LineBotApi(lineaccesstoken)
 
@@ -150,11 +150,17 @@ def event_handle(event,json_line):
     if msgType == "text":       
         msg = str(event["message"]["text"])
         if msg == "สวัสดี":
-            replyObj = TextSendMessage(text="ดีด้วย")
+            replyObj = TextSendMessage(text="ดีครับ")
             line_bot_api.reply_message(rtoken,replyObj)
         elif msg == "กินข้าวไหม":
             replyObj = TextSendMessage(text="ไม่ล่ะ กินแล้ว")
             line_bot_api.reply_message(rtoken,replyObj)
+            elif msg == "covid" :
+            url = "https://covid19.ddc.moph.go.th/api/Cases/today-cases-all"
+            response = requests.get(url)
+            response = response.json()
+            replyObj = TextSendMessage(text=str(response))
+            line_bot_api.reply_message(rtoken, replyObj)
         else :   
             headers = request.headers
             json_headers = ({k:v for k, v in headers.items()})
