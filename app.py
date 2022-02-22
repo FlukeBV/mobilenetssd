@@ -149,8 +149,8 @@ def event_handle(event,json_line):
 
     if msgType == "text":       
         msg = str(event["message"]["text"])
-        if msg == "สวัสดี":
-            replyObj = TextSendMessage(text="ดีครับ")
+        if msg == "ขอเมนูอาหาร":
+            replyObj = TextSendMessage(text="ข้าวผัด 40 บาท")
             line_bot_api.reply_message(rtoken,replyObj)
         elif msg == "กินข้าวไหม":
             replyObj = TextSendMessage(text="ไม่ล่ะ กินแล้ว")
